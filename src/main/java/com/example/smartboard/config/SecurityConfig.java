@@ -9,8 +9,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-/* Configuration
-* 이 클래스가 설정도임을 스프링에게 알리기 위한 어노테이션
+/* @Configuration
+* 이 클래스가 설정도(설계도)임을 스프링에게 알리기 위한 어노테이션
 * 이 클래스가 설정 클래스임을 스프링에게 알린다.
 * */
 @Configuration
@@ -29,7 +29,7 @@ public class SecurityConfig {
                 // 이유는 : CSRF는 브라우저 세션/쿠키 기반 보호장치라서이다.
                 // 세션-폼로그인을 안 쓰는 REST API에선 불필요 및 번거롭다
 
-                // 초기 REST API 개발 편의상 CSRF 비활성화한다.
+                // 초기 REST API 개발 편의상 CSRF 비활성화(disable())한다.
                 .csrf(csrf -> csrf.disable())
                 // 요청(Endpoint)별 접근 권한 규칙을 정한다.
                 .authorizeHttpRequests(auth -> auth
