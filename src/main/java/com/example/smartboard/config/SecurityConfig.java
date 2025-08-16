@@ -34,7 +34,7 @@ public class SecurityConfig {
                 // 요청(Endpoint)별 접근 권한 규칙을 정한다.
                 .authorizeHttpRequests(auth -> auth
                 // 1) 회원가입 및 로그인은 누구나 접근 가능하게끔 인증없이 접근 허용 (권한 부여 (인증이 불필요하다.))
-                .requestMatchers("/sb/signup","/sb/login").permitAll()
+                .requestMatchers("/sb/signup","/sb/login","/start").permitAll()
                 // 2) 정적 리소스도 열어두면 편하다(필수가 아닌 선택)
                 .requestMatchers(HttpMethod.GET, "/","/css/**","/js/**","/images/**","/favicon.ico").permitAll()
                 // 3) 그 외 모든 요청은 인증이 필요하다.
